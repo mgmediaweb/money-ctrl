@@ -1,55 +1,58 @@
 @font-face {
   font-family: 'proxima_nova_regular';
-  src: url('../fonts/proximanova-regular-webfont.woff2') format('woff2'),
-       url('../fonts/proximanova-regular-webfont.woff') format('woff');
+  src: url('./fonts/proxima_nova_regular-webfont.woff2') format('woff2'),
+       url('./fonts/proxima_nova_regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'proxima_nova_black';
-  src: url('proxima_nova_black-webfont.woff2') format('woff2'),
-       url('proxima_nova_black-webfont.woff') format('woff');
+  font-family: 'proxima_nova_bold';
+  src: url('./fonts/proxima_nova_bold-webfont.woff2') format('woff2'),
+       url('./fonts/proxima_nova_bold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
+$border-radius: 0;
 $padding: 10px;
 $image-circle-size: 100px;
 $transition: 0.5s;
 
 //Colors
-$color-background: white;
 $danger: #fd3654;
-$primary: #129575;
-$silver: #d9dadb;
+$primary: #3778C2;
+$success: #5fb523;
+$dark: #434b54;
+$silver: #f1f3f2;
 
 html {
   font-size: 16px;
 }
 
 body {
-  background-color: $color-background !important;
-  font-family: 'proxima_nova_regular', sans-serif;
-}
-
-a {
-  text-decoration: none !important;
-
-  &:hover {
-    text-decoration: underline !important;
-  }
+  background-color: $silver !important;
+  font-family: 'proxima_nova_regular', monospace !important;
 }
 
 h1 {
-  font-family: 'proxima_nova_regular', sans-serif;
+  color: $primary;
+  font-family: 'proxima_nova_bold', monospace, sans-serif;
 }
 
+header {
+  background-color: $primary;
+  color: white;
+  height: 60px;
+  margin-bottom: $padding;
+}
+
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx DESKTOP VERSION xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 @media only screen and (min-width: 768px) {
-  .icon-time {
-    height: 64px;
-    width: 64px;
-  }
+
 }
 
 @import "bootstrap";
