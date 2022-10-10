@@ -1,0 +1,41 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="row mb-4">
+  <div class="col-8">
+    <h1 class="m-0 p-0">Transactions (<%= @transactions.count %>)</h1>
+  </div>
+  <div class="col-4 text-end">
+    <%= link_to "New", new_transaction_path, class: 'btn btn-primary btn-href' %>
+  </div>  
+</div>
+
+<div class="top-bar">
+  <h6 class="fw-normal m-0 p-0">Amount<span class="badge bg-success ms-2"><%= number_to_currency(@amount, :unit => "$") %></span></h6>
+
+  <%= form_with(url: transactions_url, method: :get ) do |form| %>
+    <select
+      name="category"
+      class="form-select select-trans"
+      onchange="this.form.submit()"
+    >
+      <option value="">All categories</option>
+      <% @categories.each do |category| %>
+        <option value="<%=category.id %>" <%= 'selected' if category.id == @category_selected.to_i %>>
+          <%=category.name %>
+        </option>
+      <% end %>
+    </select>    
+  <% end %>
+</div>
+
+<div class="row">
+  <% if @transactions.count.positive? %>
+    <% @transactions.each do |transaction| %>
+      <%= render transaction %>
+    <% end %>
+  <% else %>
+    <div class="col-12 my-5 text-center">
+      - No items available -
+    </div>
+  <% end %>    
+</div>
