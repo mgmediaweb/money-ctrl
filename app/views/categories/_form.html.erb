@@ -1,0 +1,143 @@
+<% categories = [
+    {
+      icon: 'icon1',
+      title: 'Housing',
+      description: 'Mortgage or rent, Property taxes, Household repairs, HOA fees.',
+    },
+    {
+      icon: 'icon2',
+      title: 'Transportation',
+      description: 'Car payment, Car warranty, Gas, Tires, Maintenance & Repairs, Parking fees.',
+    },
+    {
+      icon: 'icon3',
+      title: 'Food',
+      description: 'Groceries, Restaurants, Pet food.',
+    },
+    {
+      icon: 'icon4',
+      title: 'Utilities',
+      description: 'Electricity, Water, Garbage, Phones, Cable, Internet.',
+    },
+    {
+      icon: 'icon5',
+      title: 'Clothing',
+      description: 'Adults’ clothing, Adults’ shoes, Children’s clothing, Children’s shoes.',
+    },
+    {
+      icon: 'icon6',
+      title: 'Medical/Healthcare',
+      description: 'Primary care, Dental care, Specialty care, Urgent care, Medications, Medical devices.',
+    },
+    {
+      icon: 'icon7',
+      title: 'Insurance',
+      description: 'Health/Life insurance, Home/Auto protection.',
+    },
+    {
+      icon: 'icon8',
+      title: 'Household Supplies',
+      description: 'Toiletries, Laundry detergent, Dishwasher detergent, Cleaning supplies, Tools.',
+    },
+    {
+      icon: 'icon9',
+      title: 'Personal',
+      description: 'Gym memberships, Haircuts, Salon services, Cosmetics, Babysitter, Subscriptions.',
+    },
+    {
+      icon: 'icon10',
+      title: 'Debt',
+      description: 'Personal loans, Student loans, Credit cards.',
+    },
+    {
+      icon: 'icon11',
+      title: 'Retirement',
+      description: 'Financial planning, Investing.',
+    },
+    {
+      icon: 'icon12',
+      title: 'Education',
+      description: 'Children’s college, Your college, School supplies, Books.',
+    },
+    {
+      icon: 'icon13',
+      title: 'Savings',
+      description: 'Emergency fund, Big purchases like a new mattress or laptop, Other savings.',
+    },
+    {
+      icon: 'icon14',
+      title: 'Gifts/Donations',
+      description: 'Birthday, Anniversary, Wedding, Christmas, Special occasion, Charities.',
+    },
+    {
+      icon: 'icon15',
+      title: 'Entertaiment',
+      description: 'Alcohol and/or bars, Games, Movies, Concerts, Vacations, Subscriptions.',
+    },    
+  ] %>
+
+<%= form_with(model: category) do |form| %>
+
+  <%= form.hidden_field :icon, required: 'required' %>
+
+  <% if category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-12 mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control', placeholder: 'Phone bill', required: 'required' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= form.label 'Select Icon', class: 'form-label' %>
+    </div>  
+    <% categories.each do |category| %>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+        <div id="card_<%=category[:icon] %>" class="card h-100 card-button <%=showActive(category[:icon], @category.icon) %>" onClick="selectCategory('<%=category[:icon] %>')">
+          <div class="card-body p-2 d-flex align-items-start">
+            <img src="<%=asset_path(category[:icon]) %>" alt="<%=category[:title] %>" class="card-image">
+            <div>
+              <p class="m-0 p-0"><%=category[:title] %></p>
+              <p class="comment m-0 p-0"><%=category[:description] %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>  
+
+  <div class="row mt-3">
+    <div class="col-12 text-end">
+    <%= link_to "Back", categories_path, class: 'btn btn-outline-primary btn-href' %>
+    <%= form.submit 'Save', class: 'btn btn-primary ms-3' %>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  const cardButton = document.getElementsByClassName('card-button');
+
+  const clearAll = () => {
+    for(let x=0 ; x < cardButton.length ; x += 1) {
+      cardButton[x].classList.remove('card-active');
+    }
+  }  
+
+  const selectCategory = (icon) => {
+    clearAll();
+    document.getElementById('category_icon').value = icon;
+    document.getElementById(`card_${icon}`).classList.add('card-active');
+  }
+</script>

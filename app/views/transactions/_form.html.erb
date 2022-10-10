@@ -1,0 +1,65 @@
+<%= form_with(model: transaction) do |form| %>
+  <% if transaction.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-12 col-md-9 mb-3">
+      <%= form.label :name, class: 'form-data' %>
+      <%= form.text_field :name, class: 'form-control', required: 'required' %>
+    </div>
+    <div class="col-12 col-md-3 mb-3">
+      <%= form.label :amount, class: 'form-data' %>
+      <%= form.text_field :amount, class: 'form-control', pattern: '[0-9.]+', required: 'required' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mb-3">
+      Select categories
+    </div>
+
+    <% @categories.each do |category| %>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+        <div class="card">
+          <label class="form-check-label" for="cat_<%=category.id %>">
+            <div class="card-body p-2 d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <img src="<%=asset_path(category.icon) %>" alt="<%=category.name %>" class="card-image-thumb">
+                <p class="m-0 p-0"><%=category.name %></p>
+              </div>
+            
+              <div class="form-check form-switch">
+                <input
+                  name="categories[]"
+                  class="form-check-input"
+                  type="checkbox"
+                  id="cat_<%=category.id %>"
+                  value="<%=category.id %>"
+                  <%= 'checked' if @categories_selected.include?(category.id) %>
+                >
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+    <% end %>    
+  </div>  
+
+  
+
+  <div class="row mt-3">
+    <div class="col-12 text-end">
+    <%= link_to "Back", transactions_path, class: 'btn btn-outline-primary btn-href' %>
+    <%= form.submit 'Save', class: 'btn btn-primary ms-3' %>
+    </div>
+  </div>
+<% end %>
