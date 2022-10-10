@@ -20,7 +20,7 @@
 
       <div class="d-flex">
         <%= button_to transaction_path(transaction), { method: :delete, data: { turbo: false }, class: 'btn-delete'} do %>
-          <img src="<%= asset_path('icon_close.svg') %>" alt="Delete" title="Delete" />
+          <img src="<%= asset_path('icon_close.svg') %>" alt="Delete" title="Delete" class="btn-delete-img" />
         <% end %>
       </div>
 

@@ -1,15 +1,17 @@
 @font-face {
   font-family: 'proxima_nova_regular';
-  src: url('./fonts/proxima_nova_regular-webfont.woff2') format('woff2'),
-       url('./fonts/proxima_nova_regular-webfont.woff') format('woff');
+  src:
+    url('./fonts/proxima_nova_regular-webfont.woff2') format('woff2'),
+    url('./fonts/proxima_nova_regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'proxima_nova_bold';
-  src: url('./fonts/proxima_nova_bold-webfont.woff2') format('woff2'),
-       url('./fonts/proxima_nova_bold-webfont.woff') format('woff');
+  src:
+    url('./fonts/proxima_nova_bold-webfont.woff2') format('woff2'),
+    url('./fonts/proxima_nova_bold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -36,7 +38,7 @@ $transition: 0.5s;
 
 //Colors
 $danger: #fd3654;
-$primary: #3778C2;
+$primary: #3778c2;
 $success: #5fb523;
 $dark: #434b54;
 $silver: #f1f3f2;
@@ -48,10 +50,6 @@ $movil-menu-item: 60px;
 
 a {
   text-decoration: none !important;
-
-  &:hover {
-    text-decoration: underline !important;
-  }
 }
 
 html {
@@ -93,37 +91,34 @@ h1 {
 header {
   @include blue-gradient;
   @include position-absolute;
+
   color: white;
   height: $header;
   width: 100%;
 
   nav {
     @include no-margin-padding;
+
     height: $header;
 
     ul {
       list-style-type: none;
+
       @include no-margin-padding;
 
       li {
         display: inline-block;
         margin: 0 $padding;
         padding: 0;
-
-        a {
-          color: white;
-          display: block;
-          padding: 0 $padding;
-          line-height: $header;
-          text-decoration: none;
-
-          &:hover {
-            color: white;
-            background-color: transparentize($dark, 0.25);
-            text-decoration: none !important;
-          }
-        }
       }
+    }
+
+    a {
+      color: white;
+      display: block;
+      padding: 0 $padding;
+      line-height: $header;
+      text-decoration: none;
     }
   }
 
@@ -138,9 +133,20 @@ header {
   }
 }
 
+a:hover {
+  text-decoration: underline !important;
+}
+
+header nav a:hover {
+  color: white;
+  background-color: transparentize($dark, 0.25);
+  text-decoration: none !important;
+}
+
 #movil-menu {
   @include blue-gradient;
   @include position-absolute;
+
   color: white;
   font-size: 1.1rem;
   height: 100vh;
@@ -159,16 +165,16 @@ header {
         display: flex;
         height: $movil-menu-item;
 
-        &:not(:last-child) a {
-          border-bottom: 1px solid transparentize(white, 0.5);
-        }
-
         a {
           color: white;
           height: 100%;
           line-height: $movil-menu-item;
           text-decoration: none;
           width: calc(100% - 38px);
+        }
+
+        &:not(:last-child) a {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         }
       }
     }
@@ -201,6 +207,7 @@ header {
 
     p {
       font-size: 1.1em;
+
       @include no-margin-padding;
     }
 
@@ -228,13 +235,13 @@ header {
   right: -11px;
   width: 22px;
 
-  img {
-    height: 18px;
-    width: 18px;
-  }
-
   &:hover {
     background-color: $danger;
+  }
+
+  &-img {
+    height: 18px;
+    width: 18px;
   }
 }
 
@@ -340,7 +347,7 @@ header {
 
     img {
       height: 100%;
-      width: auto
+      width: auto;
     }
   }
 }
