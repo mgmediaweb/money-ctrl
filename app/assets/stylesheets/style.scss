@@ -137,6 +137,24 @@ a:hover {
   text-decoration: underline !important;
 }
 
+.splash {
+  @include blue-gradient;
+
+  align-items: center;
+  display: flex;
+  height: calc(100vh - 80px);
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  img {
+    height: auto;
+    margin-bottom: $padding*4;
+    max-width: 300px;
+    width: 70%;
+  }
+}
+
 header nav a:hover {
   color: white;
   background-color: transparentize($dark, 0.25);
@@ -153,6 +171,7 @@ header nav a:hover {
   max-width: 300px;
   transition: $transition;
   width: $movil-menu;
+  z-index: 1000;
 
   nav {
     ul {
@@ -212,7 +231,8 @@ header nav a:hover {
     }
 
     .profile-image {
-      background-color: lighten($primary, 10);
+      background: url('images/empty_user.png') no-repeat center center;
+      background-size: cover;
       border: 2px solid white;
       border-radius: 100%;
       height: $movil-menu * 0.4;
@@ -329,6 +349,16 @@ header nav a:hover {
   margin: 0 auto 30px auto;
   max-width: 400px;
   width: 100%;
+}
+
+.win-sign {
+  &-in {
+    max-width: 480px;
+  }
+
+  &-up {
+    max-width: 640px;
+  }
 }
 
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

@@ -3,7 +3,7 @@
     <div class="card-body p-2 pb-4">
 
       <div class="d-flex align-items-center justify-content-between">
-        <%= link_to transaction.name, edit_transaction_path(transaction), class: 'card-text fw-bold' %>
+        <%= link_to title_text(transaction.name), edit_transaction_path(transaction), class: 'card-text fw-bold' %>
 
         <p class="m-0 p-0">
           <%=number_to_currency(transaction.amount, :unit => "$") %>
