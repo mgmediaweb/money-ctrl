@@ -28,8 +28,9 @@
 
 @mixin position-absolute {
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
+  z-index: 999;
 }
 
 $border-radius: 0;
