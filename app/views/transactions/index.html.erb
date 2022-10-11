@@ -21,7 +21,7 @@
       <option value="">All categories</option>
       <% @categories.each do |category| %>
         <option value="<%=category.id %>" <%= 'selected' if category.id == @category_selected.to_i %>>
-          <%=category.name %>
+          <%=title_text(category.name) %>
         </option>
       <% end %>
     </select>    
