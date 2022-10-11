@@ -5,10 +5,10 @@ class TransactionsController < ApplicationController
   # GET /transactions or /transactions.json
   def index
     @category_selected = nil
-    @transactions = Transaction.all.order('created_at DESC')
-    @amount = Transaction.all.sum(:amount)
+    @transactions = Transaction.where(user_id: current_user).order('created_at DESC')
+    @amount = Transaction.where(user_id: current_user).sum(:amount)
     @title = 'TRANSACTIONS'
-    @categories = Category.all.order('name ASC')
+    @categories = Category.where(user_id: current_user).order('name ASC')
 
     return unless params[:category].present? && params[:category] != ''
 
@@ -34,7 +34,7 @@ class TransactionsController < ApplicationController
   def new
     @categories_selected = []
     @title = 'TRANSACTIONS'
-    @categories = Category.all.order('name ASC')
+    @categories = Category.where(user_id: current_user).order('name ASC')
     @transaction = Transaction.new
   end
 
@@ -44,13 +44,13 @@ class TransactionsController < ApplicationController
     @title = 'TRANSACTIONS'
     @selected = @transaction.categories
     @selected.each { |element| @categories_selected << element.id }
-    @categories = Category.all
+    @categories = Category.where(user_id: current_user).order('name ASC')
   end
 
   # POST /transactions or /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
-    @transaction.user = User.first
+    @transaction.user = current_user
 
     respond_to do |format|
       if @transaction.save
