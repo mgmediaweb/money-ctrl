@@ -33,7 +33,7 @@
           <label class="form-check-label" for="cat_<%=category.id %>">
             <div class="card-body p-2 d-flex align-items-center justify-content-between">
               <div class="d-flex align-items-center">
-                <img src="<%=asset_path(category.icon) %>" alt="<%=category.name %>" class="card-image-thumb">
+                <img src="<%=asset_path("#{category.icon}.png") %>" alt="<%=category.name %>" class="card-image-thumb">
                 <p class="m-0 p-0"><%=title_text(category.name) %></p>
               </div>
             
