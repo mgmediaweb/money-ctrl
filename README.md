@@ -1,6 +1,6 @@
-# Recipe App
+# Money CTRL
 
-> Complete Recipe app, which has management of Foods and Recipes.
+> Complete app, to handle budget.
 
 ## Built With
 
@@ -9,9 +9,13 @@
 - SASS
 - Bootstrap 5
 
+## Live version
+
+https://mv-money-ctrl.herokuapp.com/
+
 ## Getting Started
 
-- Open the repository [link](https://github.com/mgmediaweb/recipe_app).
+- Open the repository [link](https://github.com/mgmediaweb/money_ctrl).
 - Click on the "Code" button, above the files list.
 - Select one of the three options to copy the URL: HTTPS, SSH key and GitHub CLI.
 - Open the Terminal in the directory you want to copy the project.
@@ -25,12 +29,6 @@
 - Twitter: [@GonzoMedinaDev](https://twitter.com/GonzoMedinaDev)
 - LinkedIn: [gonzalo-medina-g](https://www.linkedin.com/in/gonzalo-medina-g/)
 
-👤 **Darik Mohammed**
-
-- GitHub: [@githubhandle](https://github.com/darikmohammed)
-- Twitter: [@twitterhandle](https://twitter.com/r_darik)
-- LinkedIn: [darikmohammed](https://www.linkedin.com/in/darik-mohammed/)
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
@@ -43,9 +41,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+Original design idea by **Gregoire Vella** [@Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
+
 
 ## 📝 License
 

@@ -1,0 +1,27 @@
+<% if notice %>
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <%= notice %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+
+<div class="row mb-4">
+  <div class="col-8">
+    <h1 class="m-0 p-0">Categories (<%= @categories.count %>)</h1>
+  </div>
+  <div class="col-4 text-end">
+    <%= link_to "New", new_category_path, class: 'btn btn-primary btn-href' %>
+  </div>  
+</div>
+
+<div class="row">
+  <% if @categories.count.positive? %>
+    <% @categories.each do |category| %>
+      <%= render category %>
+    <% end %>
+  <% else %>
+    <div class="col-12 my-5 text-center">
+      - No items available -
+    </div>
+  <% end %>
+</div>
