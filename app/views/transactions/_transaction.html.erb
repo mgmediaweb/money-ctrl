@@ -13,7 +13,7 @@
       <div class="border-top mt-2 pt-2 d-flex">
         <% transaction.categories.each do |category| %>
           <p class="m-0 p-0">
-            <%= image_tag(category.icon, alt: category.name, title: category.name, class: 'card-image-thumb') %>
+            <%= image_tag("#{category.icon}.png", alt: category.name, title: category.name, class: 'card-image-thumb') %>
           </p>
         <% end %>
       </div>

@@ -1,7 +1,7 @@
 <div class="col-12 col-md-6 col-lg-4 col-xl-3 pe-3 mb-3">
   <div class="card">
     <div class="card-body p-2 d-flex align-items-center">
-      <img src="<%= asset_path(category.icon) %>" alt="<%= category.name %>" class="card-image">
+      <img src="<%= asset_path("#{category.icon}.png") %>" alt="<%= category.name %>" class="card-image">
       <%= link_to title_text(category.name), edit_category_path(category), class: 'card-text' %>
     </div>
 
