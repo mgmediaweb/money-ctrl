@@ -107,7 +107,7 @@
       <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
         <div id="card_<%=category[:icon] %>" class="card h-100 card-button <%=showActive(category[:icon], @category.icon) %>" onClick="selectCategory('<%=category[:icon] %>')">
           <div class="card-body p-2 d-flex align-items-start">
-            <img src="<%=asset_path(category[:icon]) %>" alt="<%=category[:title] %>" class="card-image">
+            <img src="<%=asset_path("#{category[:icon]}.png") %>" alt="<%=category[:title] %>" class="card-image">
             <div>
               <p class="m-0 p-0"><%=category[:title] %></p>
               <p class="comment m-0 p-0"><%=category[:description] %></p>
