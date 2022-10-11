@@ -98,10 +98,12 @@ header {
 
   nav {
     @include no-margin-padding;
+
     height: $header;
 
     ul {
       list-style-type: none;
+
       @include no-margin-padding;
 
       li {
@@ -137,6 +139,7 @@ a:hover {
 
 .splash {
   @include blue-gradient;
+
   align-items: center;
   display: flex;
   height: calc(100vh - 80px);
