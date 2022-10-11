@@ -41,7 +41,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-Thanks to **Gregoire Vella** [@Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
+Original design idea by **Gregoire Vella** [@Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
 
 
 ## 📝 License
